@@ -1,0 +1,57 @@
+div
+  h1 Edit story
+  = form_for [@project, @story] do |f|
+    - if @story.errors.any?
+      .alert.alert-danger
+        - @story.errors.full_messages.each do |message|
+          li = message
+    p
+      = f.label :name , 'Story name'
+      br
+      = f.text_field :name
+
+      br
+      = f.label :type_of_story, 'Story type'
+      = f.select :type_of_story , ['Feature','Bug','Chore','Release']
+      br
+      = f.label :status, 'Status'
+      = f.select :status , [Story::STATUS_UNSTARTED,Story::STATUS_STARTED,Story::STATUS_FINISHED,Story::STATUS_DELIVERED,Story::STATUS_ACCEPTED,Story::STATUS_REJECTED]
+      br
+      = f.label  :owner, 'Project owner'
+      = f.select :owner ,@project.members.map(&:name)
+      br
+      = f.label :description, 'Description'
+      br
+      = f.text_area :description
+      br
+      = f.label :form_of_box, 'Select'
+      = f.select :form_of_box, ['Icebox','Backlog']
+
+    p
+      br
+      = link_to 'Add new Task' ,new_story_task_path(@story), class: 'btn btn-warning '
+      | #{"  "}
+      = link_to 'Add new comment' ,new_story_comment_path(@story), class: 'btn  btn-danger'
+      br
+        br
+
+    | #{"Tasks:"}
+    br
+    | #{"------------"}
+    br
+    - @story.tasks.each do |s|
+      = s.text
+    br
+    br
+    | #{"Comments"}
+    br
+    | #{"------------"}
+    br
+    - @story.comments.each do |s|
+      = s.comment_text
+    br
+    br
+    = f.submit  'Update story', class: 'btn btn-primary'
+    | #{" "}
+    = link_to 'cancel', story_path(@project) , class: 'btn btn-primary'
+

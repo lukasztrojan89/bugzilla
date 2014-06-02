@@ -1,0 +1,26 @@
+div
+  h1.center
+    | Current
+    hr
+    div.center
+      == render 'form'
+
+  table class="table table-striped table-hover"
+    thead
+      tr
+        th Story type
+        th Story name
+        th Status
+        th Owner
+        th
+        th
+        th
+    tbody
+      -@project.stories.each do |story|
+        - if(story.status =='Started' or story.status=='Finished' or story.status == 'Delivered' or story.status == 'Rejected')
+          tr
+            td= story.type_of_story
+            td= link_to story.name ,edit_project_story_path(@project,story), class: 'default'
+            td= story.status
+            td= story.owner
+

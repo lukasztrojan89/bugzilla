@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Bugzilla
+    == stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    == javascript_include_tag "application", "data-turbolinks-track" => true
+    == csrf_meta_tags
+    == yield :head
+  body
+    nav.navbar.navbar-inverse.admin-navbar
+      div.container
+        ul.nav.navbar-nav.pull-right
+          - if user_signed_in?
+            li
+              = link_to "Dashboard", projects_path()
+            li
+              = link_to "Sign out", destroy_user_session_path, :method => :delete
+            li
+              = link_to 'My Account',edit_user_path(current_user)
+              ul.dropdown-menu
+                li= link_to "Edit", '/users/edit'
+                li.divider
+                li
+          - else
+            li= link_to "Home", root_path
+    .container
+      - if notice.present?
+        .alert.alert-success
+          = notice
+      - if alert.present?
+        .alert.alert-danger
+          = alert
+      == yield

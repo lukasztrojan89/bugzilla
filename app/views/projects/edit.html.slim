@@ -1,0 +1,28 @@
+div.center
+  h1 Edit Project
+
+  = form_for @project  do |f|
+    - if @project.errors.any?
+      .alert.alert-danger
+        - @project.errors.full_messages.each do |message|
+          li = message
+    p
+      = f.label :title , 'Project name'
+      br
+      = f.text_field :title
+    .actions = f.submit 'Save'
+div.center
+  br
+  = link_to 'Add new Member to Project', new_project_member_path(@project) , class: 'btn btn-primary'
+  br
+  div
+    - @project.members.each do |member|
+        = link_to member.name, edit_project_member_path(@project, member), class: (if !member.confirm  then "greyed" else "confirmed" end)
+        | #{" "}
+        = button_to 'x' , project_member_path(@project,member) ,confirm: 'Are you sure?', method: :delete
+        br
+div.center
+  br
+  = link_to 'cancel', projects_path, class: 'btn btn-primary'
+
+

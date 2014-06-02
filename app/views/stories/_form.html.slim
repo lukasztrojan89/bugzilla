@@ -1,0 +1,9 @@
+= link_to 'Current', current_story_url(@project), class: 'btn btn-default'
+| #{" "}
+= link_to 'Backlog', backlog_story_url(@project), class: 'btn btn-default'
+| #{" "}
+= link_to 'Icebox',icebox_story_url(@project), class: 'btn btn-default'
+| #{" "}
+= link_to 'Done', done_story_url(@project), class: 'btn btn-default'
+| #{" "}
+= link_to 'Add new story' , new_project_story_path(@project), class: 'btn btn-default'

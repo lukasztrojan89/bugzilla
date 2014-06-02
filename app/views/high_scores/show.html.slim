@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Game:
+  = @high_score.game
+p
+  strong Score:
+  = @high_score.score
+
+= link_to 'Edit', edit_high_score_path(@high_score)
+'|
+= link_to 'Back', high_scores_path

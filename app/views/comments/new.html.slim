@@ -1,0 +1,14 @@
+div
+  h1 Add new comment
+  = form_for [@story, @comment] do |f|
+    - if @comment.errors.any?
+      .alert.alert-danger
+        - @task.errors.full_messages.each do |message|
+          li = message
+    p
+      = f.label :comment_text , 'comment'
+      br
+      = f.text_area :comment_text
+      = f.submit  'Save', class: 'btn btn-primary'
+      | #{" "}
+      /= link_to 'close', edit_project_story_path(@project) , class: 'btn btn-primary'

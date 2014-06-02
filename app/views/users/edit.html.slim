@@ -1,0 +1,20 @@
+div.center
+  h1
+    | My account :#{current_user.email}
+    hr
+      p Change password
+    br
+    = form_for @user, url:  update_password_user_path,  method: :put  do |f|
+
+      p
+        = f.label :custom_password , 'New Password'
+        br
+        = f.password_field :custom_password
+      p
+        = f.label :password_conf, 'Confirm new password'
+        br
+        = f.password_field :password_conf
+      p
+        = f.submit 'Submit new password', class: 'btn btn-primary'
+        | #{" "}
+        = link_to 'cancel', projects_path , class: 'btn btn-primary'

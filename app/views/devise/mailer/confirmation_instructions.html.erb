@@ -1,0 +1,7 @@
+<p> Hello
+<%= @user.email %></p>
+<p>your account on Bugzilla has been created.
+  Please click on the link below to activate your account.
+  If you didn't request this, please ignore this email.</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>

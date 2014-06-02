@@ -1,0 +1,57 @@
+@import "bootstrap";
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+#pullleft {
+  float: pull-left;
+  padding-left: 100px;
+}
+
+#dziecko1 {
+  margin-bottom: 10px;
+  float:left;
+  width:33%;
+}
+
+#projekty {
+  float: left;
+  width: 100%;
+}
+
+.greyed {
+  color: #FF0000 !important;
+}
+.confirmed {
+  color: #6600ff !important;
+}
+
+
+
+#pullright {
+  float: pull-right;
+  padding-right: 100px;
+}

@@ -1,0 +1,24 @@
+div.center
+  h1 Add new member
+  = form_for [@project,@member] do |f|
+    - if @member.errors.any?
+      .alert.alert-danger
+        - @member.errors.full_messages.each do |message|
+          li = message
+    p
+      = f.label :name , 'Member name'
+      br
+      = f.text_field :name
+      br
+      = f.label :email , 'Member email'
+      br
+      = f.email_field :email
+      br
+      = f.check_box :projectmanager
+      = f.label :projectmanager, 'Project name manager'
+
+    p
+      br
+      = f.submit  'Save', class: 'btn btn-primary'
+      | #{" "}
+      = link_to 'cancel', edit_project_path(@project) , class: 'btn btn-primary'

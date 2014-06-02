@@ -1,0 +1,14 @@
+div.center
+  h1 Add/Edit Project
+
+  = form_for @project do |f|
+    - if @project.errors.any?
+      .alert.alert-danger
+        - @project.errors.full_messages.each do |message|
+          li = message
+    p
+      = f.label :title , 'Project name'
+      br
+      = f.text_field :title
+    p
+      = f.submit 'Save'

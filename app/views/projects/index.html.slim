@@ -1,0 +1,15 @@
+h1
+  |Dashboard
+  hr
+  = link_to 'Add new project' , new_project_path
+  hr
+  div id = 'projekty'
+    - @projects.each do |project|
+      div.well id = 'dziecko1'
+        = link_to "#{project.title}", story_path(project)
+        br
+        = link_to 'Edit', edit_project_path(project), class: 'btn btn-default'
+        = link_to 'Delete', project_path(project) , :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-default'
+
+= paginate @projects
+
