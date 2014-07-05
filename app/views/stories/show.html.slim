@@ -1,6 +1,7 @@
 h1.center
   | Project name: "#{@project.title}"
   hr
+.center
   = link_to 'Current', current_story_url(@project), class: 'btn btn-default'
   | #{" "}
   = link_to 'Backlog', backlog_story_url(@project), class: 'btn btn-default'

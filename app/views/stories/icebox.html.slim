@@ -1,20 +1,19 @@
-div
-  h1.center
-    | Icebox
-    hr
-    div.center
-      == render 'form'
+h1.center
+  | Icebox
+  hr
+.center
+  == render 'form'
 
-  table class="table table-striped table-hover"
-    thead
-      tr
-        th Story type
-        th Story name
-    tbody
-      -@project.stories.each do |story|
-        - if(story.form_of_box == 'Icebox')
-          tr
-            td= story.type_of_story
-            td= link_to story.name ,edit_project_story_path(@project,story), class: 'default'
+table class="table table-striped table-hover"
+  thead
+    tr
+      th Story type
+      th Story name
+  tbody
+    -@project.stories.each do |story|
+      - if(story.form_of_box == 'Icebox')
+        tr
+          td= story.type_of_story
+          td= link_to story.name ,edit_project_story_path(@project,story), class: 'default'
 
 
