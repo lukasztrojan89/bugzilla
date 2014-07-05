@@ -1,5 +1,7 @@
 Bugzilla::Application.routes.draw do
-  resources :high_scores
+
+
+  resources :projects
 
   devise_for :users
   resources :users do
@@ -13,6 +15,7 @@ Bugzilla::Application.routes.draw do
       get :confirm, on: :member
     end
   end
+  resources :activities
 
   resources :stories do
     resources :tasks

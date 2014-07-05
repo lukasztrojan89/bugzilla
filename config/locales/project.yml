@@ -1,0 +1,10 @@
+en:
+  activity:
+    project:
+      create: 'Project has been created by %{owner}'
+      update: '%{owner} has edited the project'
+      new_story: '%{owner} has created a story'
+      new_comment: '%{owner} has created a comment'
+      remove_comment: '%{owner} has removed a comment'
+      new_task: '%{owner} has created a task'
+      remove_task: '%{owner} has removed a task'

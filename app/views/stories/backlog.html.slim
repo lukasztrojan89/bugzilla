@@ -11,7 +11,6 @@ div
         th Story type
         th Story name
         th Status
-        th Owner
         th
         th
         th
@@ -22,6 +21,6 @@ div
             td= story.type_of_story
             td= link_to story.name ,edit_project_story_path(@project,story), class: 'default'
             td= story.status
-            td= story.owner
+            td= button_status(story)
             td= button_to 'x' , project_story_path(@project,story) ,confirm: 'Are you sure?', method: :delete
 

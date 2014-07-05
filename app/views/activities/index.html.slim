@@ -1,0 +1,8 @@
+h1 activities
+- @activities.each do |activity|
+  .activity
+    = activity.owner.email
+    | added new stories #{link_to activity.trackable.project.name, activity.trackable.project}
+    BR
+  hr
+/trackable_type: "Story"

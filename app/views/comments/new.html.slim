@@ -3,7 +3,7 @@ div
   = form_for [@story, @comment] do |f|
     - if @comment.errors.any?
       .alert.alert-danger
-        - @task.errors.full_messages.each do |message|
+        - @comment.errors.full_messages.each do |message|
           li = message
     p
       = f.label :comment_text , 'comment'

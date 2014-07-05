@@ -1,4 +1,6 @@
 class Story < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
   STATUSES = [STATUS_REJECTED ='Rejected',
               STATUS_STARTED = 'Started',
               STATUS_UNSTARTED = 'Unstarted',

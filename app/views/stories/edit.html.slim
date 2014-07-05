@@ -41,7 +41,7 @@ div
     br
     - @story.tasks.each do |s|
       = s.text
-    br
+      br
     br
     | #{"Comments"}
     br
@@ -49,7 +49,7 @@ div
     br
     - @story.comments.each do |s|
       = s.comment_text
-    br
+      br
     br
     = f.submit  'Update story', class: 'btn btn-primary'
     | #{" "}

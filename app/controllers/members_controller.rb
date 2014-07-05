@@ -2,10 +2,6 @@ class MembersController < ApplicationController
   before_action :set_project, only: [:edit, :new, :create, :destroy, :confirm, :update]
   before_action :set_member, only: [:edit, :update]
 
-  def index
-    @members = Member.all
-  end
-
   def new
     @member = @project.members.new
   end
@@ -20,7 +16,7 @@ class MembersController < ApplicationController
     if @member.save
       redirect_to edit_project_path(@project), notice: "New member was added to #{@project.title}"
     else
-      render :new
+      render :new, status: 422
     end
   end
 
@@ -28,7 +24,7 @@ class MembersController < ApplicationController
     if @member.update(member_params)
       redirect_to edit_project_path(@project)
     else
-      render :edit
+      render :edit, status: 422
     end
   end
 
