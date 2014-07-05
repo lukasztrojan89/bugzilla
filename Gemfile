@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'slim-rails', '2.1.4'
+gem 'rails_12factor'
 
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets'
