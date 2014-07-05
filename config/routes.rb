@@ -1,5 +1,7 @@
 Bugzilla::Application.routes.draw do
 
+  get 'static_pages/home'
+  root to: 'static_pages#home'
 
   resources :projects
 
@@ -7,8 +9,7 @@ Bugzilla::Application.routes.draw do
   resources :users do
     put :update_password, on: :member
   end
-  get 'static_pages/home'
-  root to: 'static_pages#home'
+
   resources :projects do
     resources :stories
     resources :members do
